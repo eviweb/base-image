@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+apk --repositories-file /etc/apk/repositories --update --allow-untrusted --initdb --no-cache add "$@"
+rm -rf /var/cache/apk/*

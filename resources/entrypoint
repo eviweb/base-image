@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# credits to Deni Bertovic
+# see : https://denibertovic.com/posts/handling-permissions-with-docker-volumes/
+
+USER_ID="${LOCAL_USER_UID:-9001}"
+USER_NAME="${LOCAL_USER_NAME:-user}"
+
+[ -e /home/"${USER_NAME}" ] || mkdir -p /home/"${USER_NAME}"
+
+getent passwd "${USER_NAME}" &> /dev/null || \
+    adduser -h /home/"${USER_NAME}" -s /bin/bash -D -u "${USER_ID}" "${USER_NAME}"
+
+[ "${DEBUG}" == "1" ] && echo "Starting with User/UID: ${USER_NAME}/$(id -u ${USER_NAME})"
+
+exec /sbin/su-exec "${USER_NAME}" "$@"
