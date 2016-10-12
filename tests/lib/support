@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+maindir()
+{
+    dirname "$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE}")")")"
+}
+
+vendor()
+{
+    echo "eviweb"
+}
+
+image()
+{
+    local maindir="$(maindir)"
+
+    echo "${maindir##*/}"
+}
+
+version()
+{
+    cat "$(maindir)/VERSION"
+}
+
+get_image()
+{
+    local tag="$1"
+    [ -n "${tag}" ] || tag="$(version)"
+
+    echo "$(vendor)/$(image):${tag}"
+}
+
+get_test_image()
+{
+    get_image "test"
+}
+
+test_image_exists()
+{
+    docker images | grep -Poe "$(vendor)/$(image)\s+test" &>/dev/null
+}
+
+build_test_image()
+{
+    test_image_exists || docker build -t "$(get_test_image)" "$(maindir)"
+}
+
+delete_test_image()
+{
+    test_image_exists && docker rmi "$(get_test_image)"
+}
+
+init_test_environment()
+{
+    build_test_image
+}
+
+expect_output()
+{
+    local actual="$($1)"
+    local expected="$2"
+
+    [ "${actual}" == "${expected}" ] || {
+        echo -e "Expect '${actual}' to be the same as '${expected}'"
+        exit 1
+    }
+}
+
+expect_output_contains()
+{
+    local actual="$($1)"
+    local expected="$2"
+
+    [[ "${actual}" == *"${expected}"* ]] || {
+        echo -e "Expect '${actual}' to contain '${expected}'"
+        exit 1
+    }
+}
+
+trap delete_test_image INT SIGINT SIGTERM EXIT
