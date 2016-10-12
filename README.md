@@ -60,6 +60,9 @@ ie. `php7@community`
 
 > Please note that untagged packages refer to the `@main` repository.
 
+Build
+-----
+To build this image, run `make` from the root of this project.
 
 Credits
 -------
