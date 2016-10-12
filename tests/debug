@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+libdir()
+{
+    echo "$(dirname "$(readlink -f "${BASH_SOURCE}")")/lib"
+}
+
+. "$(libdir)/support"
+
+init_test_environment
+
+expect_output "docker run --rm -e DEBUG=1 $(get_test_image) bash" "Starting with User/UID: user/9001"
