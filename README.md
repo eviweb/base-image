@@ -60,6 +60,30 @@ ie. `php7@community`
 
 > Please note that untagged packages refer to the `@main` repository.
 
+Alpine Installed Packages
+-------------------------
+- apk-tools
+- bash
+- busybox
+- ca-certificates
+- curl
+- expat
+- git
+- libcrypto1.0
+- libcurl
+- libssh2
+- libssl1.0
+- musl
+- musl-utils
+- ncurses-libs
+- ncurses-terminfo
+- ncurses-terminfo-base
+- pcre
+- readline
+- scanelf
+- su-exec
+- zlib
+
 Build
 -----
 To build this image, run `make` from the root of this project.
