@@ -25,7 +25,6 @@ rootfs:
 			"
 
 build:
-	docker images | grep -Poe "$(VENDOR)/$(IMAGE)\s+$(VERSION)" &> /dev/null && docker rmi $(TAG)
 	@docker build -t $(TAG) .
 
 clean:
