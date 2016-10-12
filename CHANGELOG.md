@@ -6,3 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Added
 - package files
+- test files
+- Makefile
+- Dockerfile
+- ./runner/entrypoint.sh (used while building rootfs)
+- resources:    
+    - add-pack
+    - apk-repositories
+    - entrypoint.sh (docker image entrypoint)
+
