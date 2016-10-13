@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+### 0.1.1 - 2016-10-13
 #### Added
 - `bin/listpkg` to generate automatically the list of Alpine installed packages
 - `bin/delimg` to remove any docker images that should have been previously generated
