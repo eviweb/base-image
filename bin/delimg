@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+maindir()
+{
+    echo "$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE}")")")"
+}
+
+IMAGE="$1"
+
+[ -n "${IMAGE}" ] || {
+    echo "Please sepcify an image name. It must follow the format: vendor/name:version."
+    exit 1
+}
+
+! docker images | grep -Poe "${IMAGE/:/\\s+}" &>/dev/null || docker rmi "${IMAGE}"

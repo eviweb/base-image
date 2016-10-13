@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Added
 - `bin/listpkg` to generate automatically the list of Alpine installed packages
+- `bin/delimg` to remove any docker images that should have been previously generated
 
 #### Changed
 - keep the build folder in the directory layout
@@ -15,6 +16,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
     - is set in its own file
     - is used to generate the `apk-repositories` file
 - the build target now tags the docker image with `latest` and  the alpine version
+- the clean target now remove any existing docker image
 
 #### Fixed
 - issue #1: Travis failure: missing docker command

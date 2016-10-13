@@ -35,6 +35,9 @@ build:
 	$(CURDIR)/bin/listpkg $(TAG)
 
 clean:
+	$(CURDIR)/bin/delimg $(TAG)
+	$(CURDIR)/bin/delimg $(ALPINE_TAG)
+	$(CURDIR)/bin/delimg $(LATEST_TAG)
 	rm -rf $(CURDIR)/build/*
 
 test:	
