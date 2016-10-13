@@ -12,6 +12,6 @@ after_success:
   - ${TRAVIS_BUILD_DIR}/bin/trigger-docker
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     ALPINE_VERSION=`cat ${TRAVIS_BUILD_DIR}/alpine-version`;
-    docker login -e="${DOCKER_EMAIL}" -u="${DOCKER_USER}" -p="${DOCKER_SECRET}";
+    docker login -u="${DOCKER_USER}" -p="${DOCKER_SECRET}";
     docker push "${DOCKER_USER}/${DOCKER_REPO}:${ALPINE_VERSION}";
     fi
