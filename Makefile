@@ -26,6 +26,7 @@ rootfs:
 
 build:
 	@docker build -t $(TAG) .
+	$(CURDIR)/bin/listpkg $(TAG)
 
 clean:
 	rm -rf $(CURDIR)/build/*

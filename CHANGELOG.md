@@ -4,8 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+#### Added
+- `bin/listpkg` to generate automatically the list of Alpine installed packages
+
 #### Changed
 - keep the build folder in the directory layout
+- generate automatically the list of Alpine installed packages during build
+- replace Alpine installed packages list in readme by a link to `./alpine-packages.md`
 
 #### Fixed
 - issue #1: Travis failure: missing docker command

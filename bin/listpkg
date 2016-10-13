@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+maindir()
+{
+    echo "$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE}")")")"
+}
+
+IMAGE="$1"
+
+[ -n "${IMAGE}" ] || {
+    echo "Please sepcify an image name. It must follow the format: vendor/name:version."
+    exit 1
+}
+
+echo -e "Alpine Installed Packages\n-------------------------" > "$(maindir)"/alpine-packages.md
+docker run --rm "${IMAGE}" apk info | sed -r -e 's/^WARNING[^\n]+//g' -e '/^$/d' -e 's/^([^\n]+)/* \1/g'| sort >> "$(maindir)"/alpine-packages.md
