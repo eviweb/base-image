@@ -39,6 +39,13 @@ test_image_exists()
     docker images | grep -Poe "$(vendor)/$(image)\s+test" &>/dev/null
 }
 
+ensure_rootfs()
+{
+    [ -e "$(maindir)/build/rootfs.tar.gz" ] || {
+        make rootfs
+    }
+}
+
 build_test_image()
 {
     test_image_exists || docker build -t "$(get_test_image)" "$(maindir)"
@@ -51,6 +58,7 @@ delete_test_image()
 
 init_test_environment()
 {
+    ensure_rootfs
     build_test_image
 }
 

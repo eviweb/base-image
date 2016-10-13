@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Fixed
 - issue #1: Travis failure: missing docker command
+- `make test` can be run independently
 
 ### 0.1.0 - 2016-10-12
 #### Added

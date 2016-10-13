@@ -5,4 +5,4 @@ language: c
 services:
   - docker
 
-script: make
+script: make test
