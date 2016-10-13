@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+#### Fixed
+- issue #1: Travis failure: missing docker command
+
 ### 0.1.0 - 2016-10-12
 #### Added
 - package files
