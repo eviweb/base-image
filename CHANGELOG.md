@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - `bin/listpkg` to generate automatically the list of Alpine installed packages
 - `bin/delimg` to remove any docker images that should have been previously generated
+- Travis CI to Docker:
+    - automatically build Docker images on successful tests
+    - trigger a Docker build for the current branch
+    - push the `alpine` tagged image on successful tests on `master` branch
 
 #### Changed
 - keep the build folder in the directory layout
