@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [Unreleased][unreleased]
 
+#### Changed
+- keep the build folder in the directory layout
+
 #### Fixed
 - issue #1: Travis failure: missing docker command
 
