@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - `bin/delimg` to remove any docker images that should have been previously generated
 - Travis CI to Docker:
     - automatically build Docker images on successful tests
-    - trigger a Docker build for the current branch
+    - add `bin/trigger-docker` to trigger a Docker build for the current branch or tag
     - push the `alpine` tagged image on successful tests on `master` branch
 
 #### Changed

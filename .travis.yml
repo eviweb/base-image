@@ -9,7 +9,7 @@ script: make test
 
 after_success:
   - make build
-  - "curl -H 'Content-Type: application/json' --data '{\"source_type\": \"Branch\", \"source_name\": \"$TRAVIS_BRANCH\"}' -X POST https://registry.hub.docker.com/u/${DOCKER_USER}/${DOCKER_REPO}/trigger/${DOCKER_TOKEN}/"
+  - ${TRAVIS_BUILD_DIR}/bin/trigger-docker
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     ALPINE_VERSION=`cat ${TRAVIS_BUILD_DIR}/alpine-version`;
     docker login -e="${DOCKER_EMAIL}" -u="${DOCKER_USER}" -p="${DOCKER_SECRET}";

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+NAME="${TRAVIS_BRANCH}"
+TYPE="Branch"
+
+[ -n "${TRAVIS_TAG}" ] && {
+    NAME="${TRAVIS_TAG}"
+    TYPE="Tag"
+}
+
+curl -H "Content-Type: application/json" --data "{\"source_type\": \"${TYPE}\", \"source_name\": \"${NAME}\"}" -X POST https://registry.hub.docker.com/u/${DOCKER_USER}/${DOCKER_REPO}/trigger/${DOCKER_TOKEN}/
