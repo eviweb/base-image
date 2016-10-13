@@ -2,6 +2,10 @@ Docker - Base image
 ===================
 A base image using [su-exec][su-exec], based on a custom [Alpine Linux][alpine]
 
+##### Health status
+[![Build Status][build-status]][repository]
+[![Github - Last tag][last-tag]][tags]
+
 Usage
 -----
 ### Create an image
@@ -62,7 +66,7 @@ ie. `php7@community`
 
 Alpine Installed Packages
 -------------------------
-Please refer to [Alpine Packages](/alpine-packages.md)
+Please refer to [Alpine Packages][alpine-packages]
 
 Build
 -----
@@ -75,10 +79,16 @@ Credits
 
 License
 -------
-This project is licensed under the terms of the [MIT License](/LICENSE)
+This project is licensed under the terms of the [MIT License][license]
 
 [alpine]: https://alpinelinux.org/
+[alpine-packages]: https://github.com/eviweb/base-image/blob/master/alpine-packages.md
+[build-status]: https://travis-ci.org/eviweb/base-image.svg?branch=master
 [denibertovic]: https://denibertovic.com/posts/handling-permissions-with-docker-volumes/
 [denibertovic-github]: https://github.com/denibertovic
 [imega-docker]: https://github.com/imega-docker/base-builder
+[last-tag]: https://img.shields.io/github/tag/eviweb/base-image.svg
+[license]: https://github.com/eviweb/base-image/blob/master/LICENSE
+[repository]: https://travis-ci.org/eviweb/base-image
 [su-exec]: https://github.com/ncopa/su-exec
+[tags]: https://github.com/eviweb/base-image/tags
