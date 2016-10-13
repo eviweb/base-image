@@ -17,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
     - is used to generate the `apk-repositories` file
 - the build target now tags the docker image with `latest` and  the alpine version
 - the clean target now remove any existing docker image
+- keep `./build/rootfs.tar.gz` in the repository to allow Docker Hub automatic build
 
 #### Fixed
 - issue #1: Travis failure: missing docker command

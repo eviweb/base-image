@@ -1,2 +1,2 @@
 !/build
-/build/*.gz
+!/build/rootfs.tar.gz
